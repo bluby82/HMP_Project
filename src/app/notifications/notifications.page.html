@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Notifications</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="container" *ngIf="status && notificationData.length > 0">
+    <ion-card *ngFor="let request of notificationData">
+      <ion-card-content>
+        <div class="card-content-container">
+          <div class="text-container">
+            <ion-card-header class="title">
+              {{ request.waktu }}
+            </ion-card-header>
+            <ion-card-subtitle class="req">
+              {{ request.username }} Request to Contributes
+            </ion-card-subtitle>
+          </div>
+          <div class="link-container">
+            <p><a (click)="respondToRequest(request.user_id, request.cerbung_id)">Respond</a></p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+
+
+  </div>
+  <div *ngIf="!status || notificationData.length === 0" class="no-notif">
+    <p>You don't have notifications</p>
+  </div>
+</ion-content>

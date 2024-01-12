@@ -1,0 +1,102 @@
+.container {
+    max-width: 90%;
+    margin: auto;
+}
+
+.img {
+    border: 5px;
+    border-radius: 20px;
+    height: 30em;
+}
+
+.pembuat {
+    margin-left: 10px;
+}
+
+ion-toolbar {
+    --ion-background-color: #D2E0FB;
+}
+
+.container-img {
+    height: 30em;
+    width: 100%;
+    border: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    margin-right: 20px;
+
+}
+
+.genre {
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.paragraph {
+    width: 100;
+}
+
+#button-like {
+    width: 30%;
+    text-align: right;
+    margin-left: -2em;
+    margin-bottom: 1em;
+}
+
+.separator {
+    height: 1px;
+    background-color: #ccc;
+    margin: 50px 0;
+}
+
+.container-textarea {
+    margin: 20px;
+}
+
+ion-list img {
+    width: 340px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.judul-cerbung {
+    font-weight: bold;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .img {
+        object-fit: fill;
+        border: 5px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+
+    .container-img {
+        height: 40em;
+        border: 5px;
+        border-radius: 20px;
+    }
+
+    .rounded-img {
+        border-radius: 30px;
+    }
+}

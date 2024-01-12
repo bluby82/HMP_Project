@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="#fe5009">
+    <ion-title id="title"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title id = "card-title">
+          Create an Cerbung Account
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content id = "card-content">
+        <ion-row>
+          <ion-input placeholder="Your username" fill="outline">
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Your password" fill="outline" class="input" type="password">
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="retype password" fill="outline" class="input" type="password">
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Profile picture link" class="input">
+          </ion-input>
+        </ion-row>
+        <ion-button expand="block" id="button">Sign Up</ion-button>
+      </ion-card-content> 
+
+    </ion-card>
+  </div>
+</ion-content>

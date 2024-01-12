@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Following</ion-title>
+    <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active" slot="end" fill="clear">
+      <ion-icon color="dark" name="notifications-outline" size="large"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+
+  <div class="container" *ngIf="status && followingCerbungData.length > 0">
+    <ion-card *ngFor="let cerbung of followingCerbungData" (click)="goReadPage(cerbung.id)">
+      <ion-card-content>
+        <div class="card-content-container">
+          <div class="image-container">
+            <img [src]="cerbung.urlPhoto" alt="Cerbung Image">
+          </div>
+          <div class="text-container">
+            <ion-card-header class="title">
+              {{ cerbung.title }}
+            </ion-card-header>
+            <ion-card-subtitle class="pengarang">
+              by {{cerbung.username}}
+            </ion-card-subtitle>
+            <ion-card-content>
+              Last Updated: {{ cerbung.createDate}}
+            </ion-card-content>
+          </div>
+        </div>
+
+
+      </ion-card-content>
+    </ion-card>
+
+
+  </div>
+  <div *ngIf="!status || followingCerbungData.length === 0" class="no-followed-cerbung-message">
+    <p>You have no Followed Cerbung Yet</p>
+  </div>
+</ion-content>

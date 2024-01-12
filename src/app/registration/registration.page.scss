@@ -1,0 +1,31 @@
+#title,
+#card-title {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+#card-title,
+#card-content .input {
+  margin-top: 1rem;
+}
+
+#card-content {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flexbox;
+}
+
+#button {
+  margin-top: 3rem;
+
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 150px;
+}
+
+.card {
+  margin-top: 200px;
+}

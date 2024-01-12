@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Read Cerbung</ion-title>
+    <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active" slot="end" fill="clear">
+      <ion-icon color="dark" name="notifications-outline" size="large"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-list>
+      <ion-item><img [src]="cerbung[0].urlPhoto" alt=#judulfilm img="img rounded-img"></ion-item>
+      <ion-item><ion-text class="judul-cerbung">{{ cerbung[0].title }}</ion-text></ion-item>
+      <ion-item>
+        <ion-badge class="badge">
+          <ion-icon name="list-outline" color="tertiary" class="icon"></ion-icon> {{cerbung[0].paragraph}}
+        </ion-badge>
+        <ion-badge class="badge">
+          <ion-icon *ngIf="statusLike === true" (click)="unlikeCerbung()" name="thumbs-up" color="tertiary" class="icon"></ion-icon>
+          <ion-icon *ngIf="statusLike === false" (click)="likeCerbung()" name="thumbs-up-outline" color="tertiary" class="icon"></ion-icon> {{cerbung[0].likes}}
+        </ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-badge class="genre" color="tertiary">{{cerbung[0].genre}}</ion-badge>
+        <ion-badge class="genre" color="tertiary">{{cerbung[0].type}}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>by {{cerbung[0].author}}</ion-label>
+        <ion-label slot="end">{{cerbung[0].createDate | date: 'dd/MM/yy'}}</ion-label>
+      </ion-item>
+
+      <ion-card *ngFor="let p of paragraphs">
+        <ion-card-content>
+          <ion-text>
+            {{p.content}}
+          </ion-text>
+        </ion-card-content>
+        <ion-row class="pembuat">
+          <ion-col style="display: flex; align-items: center;">
+            <ion-label>
+              <ion-icon name="person-outline">
+              </ion-icon>
+              {{p.username}}
+            </ion-label>
+          </ion-col>
+
+          <ion-col style="text-align: right;">
+            <ion-button *ngIf="p.statusLike == 0" (click)="likeParagraph(p.id)" fill="clear">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+            </ion-button>
+            <ion-button *ngIf="p.statusLike == 1" (click)="unlikeParagraph(p.id)" fill="clear">
+              <ion-icon name="thumbs-up"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-card>
+      <div class="separator"></div>
+      <div class="container-textarea" *ngIf="access == 'Public'">
+
+        <ion-textarea [autoGrow]="true" maxlength="70" row="60" label="Continue the Story" label-placement="stacked"
+          fill="outline" style="margin-bottom:10px" [(ngModel)]="teksParagraf"
+          (keyup)="refreshJumlahKarakter()"></ion-textarea>
+        <ion-label>({{jumlahKarakter}} of 70 character)</ion-label>
+
+      </div>
+      <ion-row class="ion-padding">
+        <ion-col>
+
+          <ion-button *ngIf="statusFollow === false" shape="round" fill="outline" (click)="followCerbung()">
+            <ion-icon name="add-outline" slot="start"></ion-icon>
+            Follow
+          </ion-button>
+
+          <ion-button *ngIf="statusFollow === true" shape="round" fill="outline" (click)="unfollowCerbung()">
+            Unfollow
+          </ion-button>
+
+        </ion-col>
+        <ion-col style="text-align: right;" *ngIf="access == 'Public'">
+          <ion-button shape="round" (click)="tambahkanParagraf()">
+            Submit
+          </ion-button>
+        </ion-col>
+        <ion-col style="text-align: right;" *ngIf="access == 'Restricted'">
+          <ion-button *ngIf="statusReq === false" shape="round" (click)="requestToContribute()">
+            <ion-icon name="add-outline" slot="start">
+            </ion-icon>
+            Contribute
+          </ion-button>
+          <ion-button *ngIf="statusReq === true" shape="round" disabled="true">
+            {{ tmpStatusApprove }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <div class="error-message" *ngIf="statusKosong==true">Paragraf harus diisi!</div>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+</ion-content>

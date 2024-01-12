@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button (click)="goBackToNotifications()" defaultHref="/notifications" slot="start"></ion-back-button>
+    <ion-title class="title">Respond</ion-title>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div class="container" *ngIf="userData && cerbungData && requestData" > 
+    <div id="frame">
+      <ion-avatar>
+        <ion-img [src]="userData.user_urlPhoto"></ion-img>
+      </ion-avatar>
+    </div>
+    <ion-card>
+      <ion-card-content>
+        {{userData.username}} <br />
+        {{userData.total_likes}} Likes |  {{userData.total_cerbung}} Cerbungs Created <br />
+        Latest post: {{userData.latest_cerbung_createDate ? userData.latest_cerbung_createDate : '-'}} <br />
+
+      </ion-card-content>
+    </ion-card>
+
+    <div id="container-request">
+      <ion-card class="ion-padding">
+        <ion-row>
+          <ion-col size="auto">
+            <img [src]="cerbungData.urlPhoto" id="img-request">
+          </ion-col>
+
+          <ion-col>
+            <ion-card-title>
+              {{cerbungData.title}}
+            </ion-card-title>
+            <ion-card-subtitle>
+              Last update: {{cerbungData.createDate}}
+            </ion-card-subtitle>
+            <ion-card-subtitle>
+              <ion-button fill="clear">
+                <ion-icon slot="start" name="thumbs-up">
+                </ion-icon>
+                {{cerbungData.like_count}}
+              </ion-button>
+            </ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <div id="container-button" *ngIf="requestData.status==='Waiting'">
+        <ion-row>
+          <ion-col>
+            <ion-button color="light" shape="round" (click)="presentConfirmation('Decline')">Decline</ion-button>
+          </ion-col>
+          <ion-col style="text-align: right;">
+            <ion-button color="tertiary" shape="round" (click)="presentConfirmation('Approve')">Approve</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div id="container-acc" *ngIf="requestData.status==='Approved'">
+        <ion-row>
+          <ion-col>
+            <p>APPROVED</p>
+          </ion-col>
+          
+        </ion-row>
+      </div>
+      <div id="container-decline" *ngIf="requestData.status==='Declined'">
+        <ion-row>
+          <ion-col>
+            <p>DECLINED</p>
+          </ion-col>
+          
+        </ion-row>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

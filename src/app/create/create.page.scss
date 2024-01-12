@@ -1,0 +1,33 @@
+.inputcerbung {
+  border: 1px solid #D2E0FB;
+  border-radius: 5px;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+ion-toolbar {
+  --ion-background-color: #D2E0FB;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.next {
+
+  width: 90px;
+  height: 30px;
+}
+
+.page {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 47%;
+  color: black;
+}
+
+.error-message {
+  margin-left: 16px;
+}

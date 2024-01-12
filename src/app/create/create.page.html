@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Create Cerbung</ion-title>
+
+    <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active" slot="end" fill="clear">
+      <ion-icon color="dark" name="notifications-outline" size="large"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-textarea [(ngModel)]="new_title" class="inputcerbung" labelPlacement="floating" label="Cerbung Title"
+          placeholder="Enter Title"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="new_description" labelPlacement="floating" label="Short Description"
+          class="inputcerbung" rows="8" cols="30" placeholder="Enter description here"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="new_imgUrl" class="inputcerbung" labelPlacement="floating"
+          label="Cerbung Image Cover" placeholder="Enter Image URL"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="new_genre" class="inputcerbung" labelPlacement="floating" label="Choose Genre">
+          <ion-select-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start" class="page">1 of 3</ion-label>
+        <ion-button id="buttonMerah" color="Restricted" shape="round" fill="outline" slot="end" (click)="create2Page()"
+          routerLinkActive="router-link-active" class="next">NEXT</ion-button>
+      </ion-item>
+    </ion-list>
+    <div class="error-message" *ngIf="statusKosong==true">Semua input harus diisi!</div>
+
+  </div>
+</ion-content>

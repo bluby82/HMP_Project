@@ -1,0 +1,54 @@
+.title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pengarang {
+  text-align: left;
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+ion-toolbar {
+  --ion-background-color: #D2E0FB;
+}
+
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+.card-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.no-followed-cerbung-message {
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+}
+
+.text-container {
+  padding: 0 10px;
+}
+
+@media (min-width: 600px) {
+  .card-content-container {
+    flex-direction: row;
+  }
+
+  .image-container img {
+    max-width: 20em;
+  }
+
+  .container {
+    width: 50%;
+  }
+}

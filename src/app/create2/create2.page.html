@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Create Cerbung</ion-title>
+
+    <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active" slot="end" fill="clear">
+      <ion-icon color="dark" name="notifications-outline" size="large"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div>
+    <ion-item>
+      <ion-label class="subtitle">Access to this Cerbung</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-radio-group value="access" [(ngModel)]="new_access">
+        <ion-radio slot="start" value="Restricted" labelPlacement="end">Restricted </ion-radio>
+        <ion-label class="sublabel">(all approved users can contributes)</ion-label>
+        <ion-radio slot="start" value="Public" labelPlacement="end">Public</ion-radio>
+        <ion-label class="sublabel"> (all users can contributes)</ion-label><br>
+      </ion-radio-group>
+
+    </ion-item>
+    <ion-item>
+      <ion-textarea [autoGrow]="true" maxlength="70" row="60" label="Write First Paragraph" label-placement="stacked"
+        fill="outline" style="margin-bottom:10px" [(ngModel)]="new_firstPara"
+        (keyup)="refreshJumlahKarakter()"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label class="char" slot="end">({{jumlahKarakter}} of 70 character)</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-button color="tertiary" shape="round" fill="outline" slot="start" (click)="create1Page()"
+        routerLinkActive="router-link-active" class="prev">PREV</ion-button>
+      <ion-label class="page">2 of 3</ion-label>
+      <ion-button color="tertiary" shape="round" fill="outline" slot="end" (click)="create3Page()"
+        routerLinkActive="router-link-active" class="next">NEXT</ion-button>
+    </ion-item>
+
+
+  </div>
+  <div class="error-message" *ngIf="statusKosong==true">Semua input harus diisi!</div>
+
+</ion-content>

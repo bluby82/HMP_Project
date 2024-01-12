@@ -1,0 +1,48 @@
+.image {
+
+  height: 5vw;
+  width: 5vw;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px gray;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-toolbar {
+  --ion-background-color: #D2E0FB;
+}
+
+
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+@media (min-width: 1080px) {
+  .container {
+    width: 50%;
+
+    #img-request {
+      width: 20em;
+      height: 10em;
+    }
+
+    ion-card-title {
+      font-size: 20pt;
+    }
+  }
+}

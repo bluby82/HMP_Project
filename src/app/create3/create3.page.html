@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title class="title">Create Cerbung</ion-title>
+
+    <ion-button [routerLink]="['/notifications']" routerLinkActive="router-link-active" slot="end" fill="clear">
+      <ion-icon color="dark" name="notifications-outline" size="large"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-label class="judulCerita">{{new_title}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-badge color="tertiary" class="badge">{{new_genre}}</ion-badge>
+        <ion-badge color="tertiary" class="badge">{{new_access}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-text labelPlacement="floating" class="isicerbung">
+          {{new_description}}
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text labelPlacement="floating" class="isicerbung">
+          {{new_firstPara}}
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox slot="start" labelPlacement="end" [(ngModel)]="cbAgree">I agree with the
+          rules and policies in creating Cerbung. This includes not containing racial slurs, discrimination, religion,
+          advertisements, and politics</ion-checkbox>
+      </ion-item>
+
+
+
+
+      <ion-item>
+        <ion-button color="tertiary" shape="round" fill="outline" slot="start" routerLinkActive="router-link-active"
+          class="prev" (click)="create2Page()">PREV</ion-button>
+        <ion-label class="page">3 of 3</ion-label>
+        <ion-button color="tertiary" shape="round" slot="end" class="submit" (click)="addCerbung()">Publish this
+          cerbung</ion-button>
+      </ion-item>
+
+    </ion-list>
+    <div class="error-message" *ngIf="statusKosong==true">Mohon centang persetujuan di atas terlebih dahulu!</div>
+
+
+
+  </div>
+</ion-content>

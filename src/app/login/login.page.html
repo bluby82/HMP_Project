@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="title">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card class="card">
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content id="card-content">
+        <ion-row>
+          <ion-input [(ngModel)]="txtUsername" placeholder="Your username" fill="outline">
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input [(ngModel)]="txtPassword" placeholder="Your password" fill="outline" class="input" type="password">
+          </ion-input>
+        </ion-row>
+        <ion-button expand="block" (click)="cekLogin()" id="button" color="tertiary">Sign in</ion-button>
+      </ion-card-content>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        Don't have an account?
+        <ion-button fill="clear" color="secondary" [routerLink]="['/registration']"
+          routerLinkActive="router-link-active">
+          Create here
+        </ion-button>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
